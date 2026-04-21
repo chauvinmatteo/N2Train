@@ -3,7 +3,7 @@ from typing import Any
 from database import (init_database, get_all_kanji, kanji_due_data,
                       update_kanji_srs, seed_database)
 from datetime import datetime, timedelta
-from rich import print # noqa
+from rich import print  # type: ignore[import-untyped]
 
 database_name = 'n2train_kanji'
 sqlite3.register_adapter(datetime, lambda d: d.strftime("%Y-%m-%d %H:%M:%S"))
