@@ -1,7 +1,7 @@
 import sqlite3
 from typing import Any
-from database import (init_database, add_kanji, get_all_kanji, kanji_due_data,
-                      update_kanji_srs)
+from database import (init_database, get_all_kanji, kanji_due_data,
+                      update_kanji_srs, seed_database)
 from datetime import datetime, timedelta
 from rich import print # noqa
 
@@ -12,13 +12,7 @@ sqlite3.register_adapter(datetime, lambda d: d.strftime("%Y-%m-%d %H:%M:%S"))
 def main() -> None:
     print("Hello N2 Kanji Trainee!")
     init_database(database_name)
-    future_date = datetime.now() + timedelta(days=365)
-    kanji_0: tuple = ('権', 'pouvoir / droit', 'ケン', 0, future_date)
-    kanji_1: tuple = ('順', 'ordre / tour', 'ジュン', 0, datetime.now())
-    success: bool = add_kanji(database_name, kanji_0)
-    add_kanji(database_name, kanji_1)
-    if success:
-        print("Successfully added the kanji!")
+    seed_database(database_name, "n2_kanji.csv")
     kanjis: list[Any] = get_all_kanji(database_name)
     for k in kanjis:
         print(f"[bold green]Kanji :[/bold green] {k[1]} | [bold blue]"
