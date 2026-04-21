@@ -1,4 +1,5 @@
 import sqlite3
+import csv
 from datetime import datetime
 
 
@@ -74,3 +75,20 @@ def update_kanji_srs(database, new_stage, new_date, caractere):
     c.execute(request, (new_stage, new_date, caractere))
     conn.commit()
     conn.close()
+
+
+def seed_database(database, csv_filepath):
+
+    with open(csv_filepath, mode="r", encoding="utf-8") as file:
+        reader = csv.reader(file)
+        next(reader)
+        for row in reader:
+            caractere: str = row[0]
+            meaning: str = row[1]
+            reading: str = row[2]
+            level = 0
+            learn_date = datetime.now()
+            kanji_data: tuple = (caractere, meaning, reading,
+                                 level, learn_date)
+            add_kanji(database, kanji_data)
+    print("Finished adding all kanji")
