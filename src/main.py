@@ -31,27 +31,48 @@ def main() -> None:
     if not kanji_due:
         print("Nothing left to study!")
     for k in kanji_due:
+        question_type = random.choice(["meaning", "caractere", "reading"])
+
+        if question_type == "meaning":
+            good_answer = k[2]
+            question = f"Whats the meaning of {k[1]} ?"
+            index_wrong = 2
+        
+        elif question_type == "caractere":
+            good_answer = k[1]
+            question = f"Whats the caractere for {k[2]}"
+            index_wrong = 1
+        
+        else:
+            good_answer = k[3]
+            question = f"Whats the reading of {k[1]}"
+            index_wrong = 3
         
         wrong_answer = get_random_choice(database_name, k[1])
         choices = []
-        choices.append(k[2])
+        choices.append(good_answer)
         for wk in wrong_answer:
-            choices.append(wk[2])
+            choices.append(wk[index_wrong])
         random.shuffle(choices)
         for number, choice in enumerate(choices, 1):
             print(f"{number}: {choice}")
 
-        answer: str = input(f"Whats the meaning of {k[1]} ?"
-                            "(press 'quit' to exit)\n")
+        answer: str = input(f"{question} ('quit' to exit)\n")
+
+        if answer.lower() in ['quit', 'q']:
+            print("[bold yellow]Session over, see you soon!")
+            break
 
         try:
-            clean_answer= int(answer) - 1
-            player_answer = choices[clean_answer]
+            chosen_number = int(answer)
 
-            if clean_answer < 1 or len(clean_answer) > len(choices):
+            if chosen_number < 1 or chosen_number > len(choices):
                 raise ValueError()
 
-            if player_answer == k[2]:
+            clean_nbr = int(answer) - 1
+            player_answer = choices[clean_nbr]
+
+            if player_answer == good_answer:
                 print("[bold green]SUCCES")
                 new_level = k[4] + 1
                 delay: timedelta = SRS_INTERVALS.get(new_level, timedelta(days=30))
@@ -59,7 +80,7 @@ def main() -> None:
                 update_kanji_srs(database_name, new_level, new_date, k[1])
 
             else:
-                print(f"[bold red]ERROR: The meaning is {k[2]}!")
+                print(f"[bold red]ERROR: The answer is {good_answer}!")
                 new_level = 0
                 new_date = datetime.now() + timedelta(minutes=5)
                 update_kanji_srs(database_name, new_level, new_date, k[1])
