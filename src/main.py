@@ -1,8 +1,8 @@
 import sqlite3
 import random
 from typing import Any
-from database import (init_database, get_all_kanji, kanji_due_data,
-                      update_kanji_srs, seed_database, get_random_choice)
+from database import (init_database, kanji_due_data, update_kanji_srs,
+                      seed_database, get_random_choice)
 from datetime import datetime, timedelta
 from rich import print  # type: ignore[import-untyped]
 
@@ -23,10 +23,11 @@ def main() -> None:
     print("Hello N2 Kanji Trainee!")
     init_database(database_name)
     seed_database(database_name, "n2_kanji.csv")
+    questions_nb = int(input("How many question do you want to do? "))
 
     print("======================================")
 
-    kanji_due: list[Any] = kanji_due_data(database_name)
+    kanji_due: list[Any] = kanji_due_data(database_name)[:questions_nb]
 
     if not kanji_due:
         print("Nothing left to study!")
@@ -37,17 +38,17 @@ def main() -> None:
             good_answer = k[2]
             question = f"Whats the meaning of {k[1]} ?"
             index_wrong = 2
-        
+
         elif question_type == "caractere":
             good_answer = k[1]
             question = f"Whats the caractere for {k[2]}"
             index_wrong = 1
-        
+
         else:
             good_answer = k[3]
             question = f"Whats the reading of {k[1]}"
             index_wrong = 3
-        
+
         wrong_answer = get_random_choice(database_name, k[1])
         choices = []
         choices.append(good_answer)
@@ -75,7 +76,8 @@ def main() -> None:
             if player_answer == good_answer:
                 print("[bold green]SUCCES")
                 new_level = k[4] + 1
-                delay: timedelta = SRS_INTERVALS.get(new_level, timedelta(days=30))
+                delay: timedelta = SRS_INTERVALS.get(new_level,
+                                                     timedelta(days=30))
                 new_date: datetime = datetime.now() + delay
                 update_kanji_srs(database_name, new_level, new_date, k[1])
 
