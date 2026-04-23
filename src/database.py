@@ -7,7 +7,6 @@ def init_database(database_name):
 
     conn: sqlite3.Connection = sqlite3.connect(database_name)
     c = conn.cursor()
-    # print(c)
     request = ('''
     CREATE TABLE IF NOT EXISTS kanjis (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
