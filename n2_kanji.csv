@@ -1,6 +1,368 @@
 caractere,sens,lecture
-権,pouvoir / droit,ケン
-順,ordre / tour,ジュン
-怒,colère,ド
-測,mesurer,ソク
-構,structure,コウ
+了,Complete / Finish,りょう | -
+丸,Round / Full (month) / Perfection,がん | まる まる.める まる.い
+玉,Jewel / Ball,ぎょく | たま たま- -だま
+久,Long Time / Old Story,きゅう く | ひさ.しい
+戸,Door / Counter For Houses / Door Radical (no. 63),こ | と
+毛,Fur / Hair / Feather,もう | け
+央,Center / Middle,おう | -
+氷,Icicle / Ice / Hail,ひょう | こおり ひ こお.る
+皮,Pelt / Skin / Hide,ひ | かわ
+皿,Dish / A Helping / Plate,べい | さら
+竹,Bamboo,ちく | たけ
+糸,Thread,し | いと
+虫,Insect / Bug / Temper,ちゅう き | むし
+村,Village / Town,そん | むら
+貝,Shellfish,ばい | かい
+池,Pond / Cistern / Pool,ち | いけ
+羽,"Feathers / Counter For Birds, Rabbits",う | は わ はね
+角,Angle / Corner / Square,かく | かど つの
+谷,Valley,こく | たに きわ.まる
+麦,Barley / Wheat,ばく | むぎ
+林,Grove / Forest,りん | はやし
+州,State / Province,しゅう す | す
+血,Blood,けつ | ち
+星,Star / Spot / Dot,せい しょう | ほし -ぼし
+札,Tag / Paper Money / Counter For Bonds,さつ | ふだ
+辺,Environs / Boundary / Border,へん | あた.り ほと.り -べ
+弱,Weak / Frail,じゃく | よわ.い よわ.る よわ.まる よわ.める
+黄,Yellow,こう おう | き こ-
+森,Forest / Woods,しん | もり
+雲,Cloud,うん | くも -ぐも
+県,Prefecture,けん | か.ける
+軽,Lightly / Trifling / Unimportant,けい きょう きん | かる.い かろ.やか かろ.んじる
+農,Agriculture / Farmers,のう | -
+鉄,Iron,てつ | くろがね
+算,Calculate / Divining / Number,さん | そろ
+線,Line / Track,せん | すじ
+仲,Go-between / Relationship,ちゅう | なか
+低,Lower / Short / Humble,てい | ひく.い ひく.める ひく.まる
+岸,Beach,がん | きし
+波,Waves / Billows / Poland,は | なみ
+拾,Pick Up / Gather / Find,しゅう じゅう | ひろ.う
+秒,Second (1/60 Minute),びょう | -
+競,Emulate / Compete With / Bid,きょう けい | きそ.う せ.る くら.べる
+令,Orders / Ancient Laws / Command,れい | -
+根,Root / Radical / Head (pimple),こん | ね -ね
+倍,Double / Twice / Times,ばい | -
+島,Island,とう | しま
+祭,Ritual / Offer Prayers / Celebrate,さい | まつ.る まつ.り まつり
+章,Badge / Chapter / Composition,しょう | -
+童,Juvenile / Child,どう | わらべ
+階,Storey / Stair / Counter For Storeys Of A Building,かい | きざはし
+植,Plant,しょく | う.える う.わる
+温,Warm,おん | あたた.か あたた.かい あたた.まる あたた.める ぬく
+湯,Hot Water / Bath / Hot Spring,とう | ゆ
+短,Short / Brevity / Fault,たん | みじか.い
+泉,Spring / Fountain,せん | いずみ
+橋,Bridge,きょう | はし
+緑,Green,りょく ろく | みどり
+練,Practice / Gloss / Train,れん | ね.る ね.り
+億,Hundred Million / 10**8,おく | -
+課,Chapter / Lesson / Section,か | -
+賞,Prize / Reward / Praise,しょう | ほ.める
+輪,Wheel / Ring / Circle,りん | わ
+像,Statue / Picture / Image,ぞう | -
+卒,Graduate / Soldier / Private,そつ しゅつ | そっ.する お.える お.わる ついに にわか
+協,Co- / Cooperation,きょう | -
+周,Circumference / Circuit / Lap,しゅう | まわ.り
+囲,Surround / Besiege / Store,い | かこ.む かこ.う かこ.い
+固,Harden / Set / Clot,こ | かた.める かた.まる かた.まり かた.い
+季,Seasons,き | -
+希,Hope / Beg / Request,き け | まれ
+材,Lumber / Log / Timber,ざい | -
+芸,Technique / Art / Craft,げい うん | う.える のり わざ
+技,Skill / Art / Craft,ぎ | わざ
+骨,Skeleton / Bone / Remains,こつ | ほね
+寺,Buddhist Temple,じ | てら
+岩,Boulder / Rock / Cliff,がん | いわ
+区,Ward / District,く おう こう | -
+坂,Slope / Incline / Hill,はん | さか
+勇,Courage / Cheer Up / Be In High Spirits,ゆう | いさ.む
+毒,Poison / Virus / Venom,どく | -
+浅,Shallow / Superficial / Frivolous,せん | あさ.い
+軍,Army / Force / Troops,ぐん | いくさ
+仏,Buddha / The Dead / France,ぶつ ふつ | ほとけ
+築,Fabricate / Build / Construct,ちく | きず.く
+門,Gate / Counter For Cannons,もん | かど と
+荷,Baggage / Shoulder-pole Load / Bear (a Burden),か | に
+府,Borough / Urban Prefecture / Govt Office,ふ | -
+浴,Bathe / Be Favored With / Bask In,よく | あ.びる あ.びせる
+専,Specialty / Exclusive / Mainly,せん | もっぱ.ら
+細,Dainty / Get Thin / Taper,さい | ほそ.い ほそ.る こま.か こま.かい
+鼻,Nose / Snout,び | はな
+兵,Soldier / Private / Troops,へい ひょう | つわもの
+塩,Salt,えん | しお
+栄,Flourish / Prosperity / Honor,えい よう | さか.える は.え -ば.え は.える え
+干,Dry / Parch / Ebb,かん | ほ.す ほ.し- -ぼ.し ひ.る
+底,Bottom / Sole / Depth,てい | そこ
+署,Signature / Govt Office / Police Station,しょ | -
+恋,Romance / In Love / Yearn For,れん | こ.う こい こい.しい
+訓,Instruction / Japanese Character Reading / Explanation,くん きん | おし.える よ.む くん.ずる
+祈,Pray / Wish,き | いの.る
+焼,Bake / Burning,しょう | や.く や.き や.き- -や.き や.ける
+胸,Bosom / Breast / Chest,きょう | むね むな-
+脳,Brain / Memory,のう どう | のうずる
+枚,Sheet Of... / Counter For Flat Thin Objects Or Sheets,まい ばい | -
+禁,Prohibition / Ban / Forbid,きん | -
+喫,Consume / Eat / Drink,きつ | の.む
+減,Dwindle / Decrease / Reduce,げん | へ.る へ.らす
+順,Obey / Order / Turn,じゅん | -
+布,Linen / Cloth / Spread,ふ | ぬの
+詞,Part Of Speech / Words / Poetry,し | ことば
+歴,Curriculum / Continuation / Passage Of Time,れき れっき | -
+冊,Tome / Counter For Books / Volume,さつ さく | ふみ
+宇,Eaves / Roof / House,う | -
+団,Group / Association,だん とん | かたまり まる.い
+暴,Outburst / Rave / Fret,ぼう ばく | あば.く あば.れる
+混,Mix / Blend / Confuse,こん | ま.じる -ま.じり ま.ざる ま.ぜる こ.む
+乱,Riot / War / Disorder,らん ろん | みだ.れる みだ.る みだ.す みだ おさ.める わた.る
+改,Reformation / Change / Modify,かい | あらた.める あらた.まる
+絡,Entwine / Coil Around / Get Caught In,らく | から.む から.まる
+比,Compare / Race / Ratio,ひ | くら.べる
+被,Incur / Cover / Veil,ひ | こうむ.る おお.う かぶ.る かぶ.せる
+震,Quake / Shake / Tremble,しん | ふる.う ふる.える
+械,Contraption / Fetter / Machine,かい | かせ
+個,Individual / Counter For Articles,こ か | -
+圧,Pressure / Push / Overwhelm,あつ えん おう | お.す へ.す おさ.える お.さえる
+厚,Thick / Heavy / Rich,こう | あつ.い あか
+防,Ward Off / Defend / Protect,ぼう | ふせ.ぐ
+史,History / Chronicle,し | -
+委,Committee / Entrust To / Leave To,い | ゆだ.ねる
+査,Investigate,さ | -
+総,General / Whole / All,そう | す.べて すべ.て ふさ
+設,Establishment / Provision / Prepare,せつ | もう.ける
+省,Focus / Government Ministry / Conserve,せい しょう | かえり.みる はぶ.く
+税,Tax / Duty,ぜい | -
+各,Each / Every / Either,かく | おのおの
+勢,Forces / Energy / Military Strength,せい ぜい | いきお.い はずみ
+営,Occupation / Camp / Perform,えい | いとな.む いとな.み
+領,Jurisdiction / Dominion / Territory,りょう | えり
+副,Vice- / Assistant / Aide,ふく | -
+域,Range / Region / Limits,いき | -
+停,Halt / Stopping,てい | と.める と.まる
+革,Leather / Skin / Reform,かく | かわ
+律,Rhythm / Law / Regulation,りつ りち れつ | -
+準,Semi- / Correspond To / Proportionate To,じゅん | じゅん.じる じゅん.ずる なぞら.える のり ひと.しい みずもり
+則,Rule / Follow / Based On,そく | のっと.る
+導,Guidance / Leading / Conduct,どう | みちび.く
+乳,Milk / Breasts,にゅう | ちち ち
+城,Castle,じょう せい | しろ
+担,Shouldering / Carry / Raise,たん | かつ.ぐ にな.う
+額,Forehead / Tablet / Plaque,がく | ひたい
+輸,Transport / Send / Be Inferior,ゆ しゅ | -
+燃,Burn / Blaze / Glow,ねん | も.える も.やす も.す
+祝,Celebrate / Congratulate,しゅく しゅう | いわ.う
+届,Deliver / Reach / Arrive,かい | とど.ける -とど.け とど.く
+肩,Shoulder,けん | かた
+腕,Arm / Ability / Talent,わん | うで
+腰,Loins / Hips / Waist,よう | こし
+触,Contact / Touch / Feel,しょく | ふ.れる さわ.る さわ
+層,Stratum / Social Class / Layer,そう | -
+型,Mould / Type / Model,けい | かた -がた
+庁,Government Office,ちょう てい | やくしょ
+管,Pipe / Tube / Wind Instrument,かん | くだ
+象,Elephant / Pattern After / Imitate,しょう ぞう | かたど.る
+量,Quantity / Measure / Weight,りょう | はか.る
+境,Boundary / Border / Region,きょう けい | さかい
+武,Warrior / Military / Chivalry,ぶ む | たけ たけ.し
+述,Mention / State / Speak,じゅつ | の.べる
+販,Marketing / Sell / Trade,はん | -
+含,Contain / Include / Hold In The Mouth,がん | ふく.む ふく.める
+況,Condition / Situation,きょう | まし.て いわ.んや おもむき
+補,Supplement / Supply / Make Good,ほ | おぎな.う
+効,Merit / Efficacy / Efficiency,こう | き.く ききめ なら.う
+豊,Bountiful / Excellent / Rich,ほう ぶ | ゆた.か とよ
+巻,Scroll / Volume / Book,かん けん | ま.く まき ま.き
+捜,Search / Look For / Locate,そう しゅ しゅう | さが.す
+替,Exchange / Spare / Substitute,たい | か.える か.え- か.わる
+造,Create / Make / Structure,ぞう | つく.る つく.り -づく.り
+印,Stamp / Seal / Mark,いん | しるし -じるし しる.す
+復,Restore / Return To / Revert,ふく | また
+筆,Writing Brush / Writing / Painting Brush,ひつ | ふで
+貯,Savings / Store / Lay In,ちょ | た.める たくわ.える
+刺,Thorn / Pierce / Stab,し | さ.す さ.さる さ.し さし とげ
+郵,Mail / Stagecoach Stop,ゆう | -
+針,Needle / Pin / Staple,しん | はり
+菓,Candy / Cakes / Fruit,か | -
+河,River,か | かわ
+汗,Sweat / Perspire,かん | あせ
+再,Again / Twice / Second Time,さい さ | ふたた.び
+接,Touch / Contact / Adjoin,せつ しょう | つ.ぐ
+占,Fortune-telling / Divining / Forecasting,せん | し.める うらな.う
+胃,Stomach / Paunch / Crop,い | -
+悩,Trouble / Worry / In Pain,のう | なや.む なや.ます なや.ましい なやみ
+昇,Rise Up,しょう | のぼ.る
+濃,Concentrated / Thick / Dark,のう | こ.い
+極,Poles / Settlement / Conclusion,きょく ごく | きわ.める きわ.まる きわ.まり きわ.み き.める -ぎ.め き.まる
+逆,Inverted / Reverse / Opposite,ぎゃく げき | さか さか.さ さか.らう
+巨,Gigantic / Big / Large,きょ | -
+庫,Warehouse / Storehouse,こ く | くら
+児,Newborn Babe / Child / Young Of Animals,じ に げい | こ -こ -っこ
+凍,Frozen / Congeal / Refrigerate,とう | こお.る こご.える こご.る い.てる し.みる
+幼,Infancy / Childhood,よう | おさな.い
+清,Pure / Purify / Cleanse,せい しょう しん | きよ.い きよ.まる きよ.める
+録,Record,ろく | しる.す と.る
+券,Ticket,けん | -
+移,Shift / Move / Change,い | うつ.る うつ.す
+並,Row / And / Besides,へい ほう | な.み なみ なら.べる なら.ぶ なら.びに
+乾,Drought / Dry / Dessicate,かん けん | かわ.く かわ.かす ほ.す ひ.る いぬい
+欧,Europe,おう | うた.う は.く
+臣,Retainer / Subject,しん じん | -
+略,Abbreviation / Omission / Outline,りゃく | ほぼ はぶ.く おか.す おさ.める はかりごと はか.る
+航,Navigate / Sail / Cruise,こう | -
+板,Plank / Board / Plate,はん ばん | いた
+詰,Packed / Close / Pressed,きつ きち | つ.める つ.め -づ.め つ.まる つ.む
+照,Illuminate / Shine / Compare,しょう | て.る て.らす て.れる
+快,Cheerful / Pleasant / Agreeable,かい | こころよ.い
+版,Printing Block / Printing Plate / Edition,はん | -
+預,Deposit / Custody / Leave With,よ | あず.ける あず.かる
+延,Prolong / Stretching,えん | の.びる の.べる の.べ の.ばす
+翌,The Following / Next,よく | -
+符,Token / Sign / Mark,ふ | -
+編,Compilation / Knit / Plait,へん | あ.む -あ.み
+普,Universal / Wide(ly) / Generally,ふ | あまね.く あまねし
+掃,Sweep / Brush,そう しゅ | は.く
+泥,Mud / Mire / Adhere To,でい ない で に | どろ なず.む
+棒,Rod / Stick / Cane,ぼう | -
+孫,Grandchild / Descendants,そん | まご
+帯,Sash / Belt / Obi,たい | お.びる おび
+粉,Flour / Powder / Dust,ふん | デシメートル こ こな
+菜,Vegetable / Side Dish / Greens,さい | な
+貨,Freight / Goods / Property,か | たから
+陸,Land / Six,りく ろく | おか
+均,Level / Average,きん | なら.す
+採,Pick / Take / Fetch,さい | と.る
+永,Eternity / Long / Lengthy,えい | なが.い
+液,Fluid / Liquid / Juice,えき | -
+績,Exploits / Achievements / Unreeling Cocoons,せき | -
+複,Duplicate / Double / Compound,ふく | -
+党,Party / Faction / Clique,とう | なかま むら
+卵,Egg / Ovum / Spawn,らん | たまご
+捨,Discard / Throw Away / Abandon,しゃ | す.てる
+汚,Dirty / Pollute / Disgrace,お | けが.す けが.れる けが.らわしい よご.す よご.れる きたな.い
+机,Desk / Table,き | つくえ
+簡,Simplicity / Brevity,かん けん | えら.ぶ ふだ
+誌,Document / Records,し | -
+宝,Treasure / Wealth / Valuables,ほう | たから
+尊,Revered / Valuable / Precious,そん | たっと.い とうと.い たっと.ぶ とうと.ぶ
+敬,Awe / Respect / Honor,けい きょう | うやま.う
+灰,Ashes / Puckery Juice / Cremate,かい | はい
+砂,Sand,さ しゃ | すな
+著,Renowned / Publish / Write,ちょ ちゃく | あらわ.す いちじる.しい
+蒸,Steam / Heat / Sultry,じょう せい | む.す む.れる む.らす
+蔵,Storehouse / Hide / Own,ぞう そう | くら おさ.める かく.れる
+装,Attire / Dress / Pretend,そう しょう | よそお.う よそお.い
+裏,Back / Amidst / In,り | うら
+諸,Various / Many / Several,しょ | もろ
+臓,Entrails / Viscera / Bowels,ぞう | はらわた
+純,Genuine / Purity / Innocence,じゅん | -
+紅,Crimson / Deep Red,こう く | べに くれない あか.い
+拝,Worship / Adore / Pray To,はい | おが.む おろが.む
+劇,Drama / Play,げき | -
+承,Acquiesce / Hear / Listen To,しょう じょう | うけたまわ.る う.ける
+損,Damage / Loss / Disadvantage,そん | そこ.なう そこな.う -そこ.なう そこ.ねる -そこ.ねる
+枝,Bough / Branch / Twig,し | えだ
+測,Fathom / Plan / Scheme,そく | はか.る
+講,Lecture / Club / Association,こう | -
+紹,Introduce / Inherit / Help,しょう | -
+介,Jammed In / Shellfish / Mediate,かい | -
+湖,Lake,こ | みずうみ
+銅,Copper,どう | あかがね
+油,Oil / Fat,ゆ ゆう | あぶら
+旧,Old Times / Old Things / Old Friend,きゅう | ふる.い もと
+姓,Surname,せい しょう | -
+貿,Trade / Exchange,ぼう | -
+将,Leader / Commander / General,しょう そう | まさ.に はた まさ ひきい.る もって
+伸,Expand / Stretch / Extend,しん | の.びる の.ばす の.べる の.す
+幅,Hanging Scroll / Width,ふく | はば
+甘,Sweet / Coax / Pamper,かん | あま.い あま.える あま.やかす うま.い
+換,Interchange / Period / Change,かん | か.える -か.える か.わる
+療,Heal / Cure,りょう | -
+般,Carrier / Carry / All,はん | -
+依,Reliant / Depend On / Consequently,い え | よ.る
+漁,Fishing / Fishery,ぎょ りょう | あさ.る
+募,Recruit / Campaign / Gather (contributions),ぼ | つの.る
+患,Afflicted / Disease / Suffer From,かん | わずら.う
+湾,Gulf / Bay / Inlet,わん | いりえ
+爆,Bomb / Burst Open / Pop,ばく | は.ぜる
+跡,Tracks / Mark / Print,せき | あと
+香,Incense / Smell / Perfume,こう きょう | か かお.り かお.る
+兆,Portent / 10**12 / Trillion,ちょう | きざ.す きざ.し
+齢,Age,れい | よわい とし
+刊,Publish / Carve / Engrave,かん | -
+傾,Lean / Incline / Tilt,けい | かたむ.く かたむ.ける かたぶ.く かた.げる かし.げる
+奥,Heart / Interior,おう | おく おく.まる くま
+贈,Presents / Send / Give To,ぞう そう | おく.る
+超,Transcend / Super- / Ultra-,ちょう | こ.える こ.す
+雇,Employ / Hire,こ | やと.う
+片,One-sided / Leaf / Sheet,へん | かた- かた
+群,Flock / Group / Crowd,ぐん | む.れる む.れ むら むら.がる
+埋,Bury / Be Filled Up / Embedded,まい | う.める う.まる う.もれる うず.める うず.まる い.ける
+駐,Stop-over / Reside In / Resident,ちゅう | -
+柱,Pillar / Post / Cylinder,ちゅう | はしら
+鋭,Pointed / Sharpness / Edge,えい | するど.い
+殿,Mr. / Hall / Mansion,でん てん | との -どの
+薄,Dilute / Thin / Weak (tea),はく | うす.い うす- -うす うす.める うす.まる うす.らぐ うす.ら- うす.れる すすき
+伺,Pay Respects / Visit / Ask,し | うかが.う
+炭,Charcoal / Coal,たん | すみ
+包,Wrap / Pack Up / Cover,ほう | つつ.む くる.む
+衣,Garment / Clothes / Dressing,い え | ころも きぬ -ぎ
+鉱,Mineral / Ore,こう | あらがね
+双,Pair / Set / Comparison,そう | ふた たぐい ならぶ ふたつ
+床,Bed / Counter For Beds / Floor,しょう | とこ ゆか
+掘,Dig / Delve / Excavate,くつ | ほ.る
+泊,Overnight Stay / Put Up At / Ride At Anchor,はく | と.まる と.める
+荒,Laid Waste / Rough / Rude,こう | あら.い あら- あ.れる あ.らす -あ.らし すさ.む
+袋,Sack / Bag / Pouch,たい だい | ふくろ
+珍,Rare / Curious / Strange,ちん | めずら.しい たから
+籍,Enroll / Domiciliary Register / Membership,せき | -
+刷,Printing / Print / Brush,さつ | す.る -ず.り -ずり は.く
+封,Seal / Closing,ふう ほう | -
+筒,Cylinder / Pipe / Tube,とう | つつ
+柔,Tender / Weakness / Gentleness,じゅう にゅう | やわ.らか やわ.らかい やわ やわ.ら
+沈,Sink / Be Submerged / Subside,ちん じん | しず.む しず.める
+辛,Spicy / Bitter / Hot,しん | から.い つら.い -づら.い かのと
+匹,Equal / Head / Counter For Small Animals,ひつ | ひき
+叫,Shout / Exclaim / Yell,きょう | さけ.ぶ
+涙,Tears / Sympathy,るい れい | なみだ
+缶,Tin Can / Container / Jar Radical (no. 121),かん | かま
+粒,Grains / Drop / Counter For Tiny Particles,りゅう | つぶ
+塔,Pagoda / Tower / Steeple,とう | -
+肌,Texture / Skin / Body,き | はだ
+舟,Boat / Ship,しゅう | ふね ふな- -ぶね
+曇,Cloudy Weather / Cloud Up,どん | くも.る
+磨,Grind / Polish / Scour,ま | みが.く す.る
+湿,Damp / Wet / Moist,しつ しゅう | しめ.る しめ.す うるお.う うるお.す
+硬,Stiff / Hard,こう | かた.い
+鈍,Dull / Slow / Foolish,どん | にぶ.い にぶ.る にぶ- なま.る なまく.ら
+涼,Refreshing / Nice And Cool,りょう | すず.しい すず.む すず.やか うす.い ひや.す まことに
+零,Zero / Spill / Overflow,れい | ぜろ こぼ.す こぼ.れる
+綿,Cotton,めん | わた
+帽,Cap / Headgear,ぼう もう | ずきん おお.う
+憎,Hate / Detest,ぞう | にく.む にく.い にく.らしい にく.しみ
+滴,Drip / Drop,てき | しずく したた.る
+畳,Tatami Mat / Counter For Tatami Mats / Fold,じょう ちょう | たた.む たたみ かさ.なる
+畜,Livestock / Domestic Fowl And Animals,ちく | -
+溶,Melt / Dissolve / Thaw,よう | と.ける と.かす と.く
+踊,Jump / Dance / Leap,よう | おど.る
+賢,Intelligent / Wise / Wisdom,けん | かしこ.い
+灯,Lamp / A Light / Light,とう | ひ ほ- ともしび とも.す あかり
+咲,Blossom / Bloom,しょう | さ.く -ざき
+塗,Paint / Plaster / Daub,と | ぬ.る ぬ.り まみ.れる
+召,Seduce / Call / Send For,しょう | め.す
+挟,Pinch / Between,きょう しょう | はさ.む はさ.まる わきばさ.む さしはさ.む
+枯,Wither / Die / Dry Up,こ | か.れる か.らす
+沸,Seethe / Boil / Ferment,ふつ | わ.く わ.かす
+濯,Laundry / Wash / Pour On,たく | すす.ぐ ゆす.ぐ
+燥,Parch / Dry Up,そう | はしゃ.ぐ
+瓶,Bottle / Vial / Jar,びん | かめ
+耕,Till / Plow / Cultivate,こう | たがや.す
+肯,Agreement / Consent / Comply With,こう | がえんじ.る
+脂,Fat / Grease / Tallow,し | あぶら
+膚,Skin / Body / Grain,ふ | はだ
+軒,Flats / Counter For Houses / Eaves,けん | のき
+軟,Soft,なん | やわ.らか やわ.らかい
+郊,Outskirts / Suburbs / Rural Area,こう | -
+隅,Corner / Nook,ぐう | すみ
+隻,Vessels / Counter For Ships / Fish,せき | -
