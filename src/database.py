@@ -92,3 +92,18 @@ def seed_database(database, csv_filepath):
                                  level, learn_date)
             add_kanji(database, kanji_data)
     print("Finished adding all kanji")
+
+
+def get_random_choice(database, current_kanji):
+
+    conn = sqlite3.connect(database)
+    c = conn.cursor()
+    request = ('''
+    SELECT * FROM kanjis WHERE caractere != ?
+    ORDER BY RANDOM() LIMIT 3       
+    ''')
+    c.execute(request, (current_kanji,))
+
+    distractor = c.fetchall()
+    c.close()
+    return distractor
