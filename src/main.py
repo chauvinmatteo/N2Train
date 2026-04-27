@@ -23,7 +23,7 @@ def main() -> None:
     print("Hello N2 Kanji Trainee!")
     init_database(database_name)
     seed_database(database_name, "n2_kanji.csv")
-    questions_nb = int(input("How many question do you want to do? "))
+    questions_nb = int(input("How many question do you want to do?\n"))
 
     print("======================================")
 
