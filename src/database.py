@@ -99,8 +99,8 @@ def get_random_choice(database, current_kanji):
     c = conn.cursor()
     request = ('''
     SELECT * FROM kanjis WHERE caractere != ?
-    ORDER BY RANDOM() LIMIT 3       
-    ''')
+    ORDER BY RANDOM() LIMIT 3
+                   ''')
     c.execute(request, (current_kanji,))
 
     distractor = c.fetchall()
