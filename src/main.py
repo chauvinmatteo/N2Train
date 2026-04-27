@@ -1,10 +1,12 @@
 import sqlite3
 import random
+from os import system
 from typing import Any
 from database import (init_database, kanji_due_data, update_kanji_srs,
                       seed_database, get_random_choice)
 from datetime import datetime, timedelta
 from rich import print  # type: ignore[import-untyped]
+from rich.console import Console  # type: ignore[import-untyped]
 
 database_name = 'n2train_kanji'
 sqlite3.register_adapter(datetime, lambda d: d.strftime("%Y-%m-%d %H:%M:%S"))
@@ -19,42 +21,48 @@ SRS_INTERVALS: dict[int, timedelta] = {
 }
 
 
-def main() -> None:
-    print("Hello N2 Kanji Trainee!")
-    init_database(database_name)
-    seed_database(database_name, "n2_kanji.csv")
-    questions_nb = int(input("How many question do you want to do?\n"))
+def launch_session(database_name) -> None:
 
-    print("======================================")
+    questions_nb = int(input("Number of question: "))
+
+    print()
 
     kanji_due: list[Any] = kanji_due_data(database_name)[:questions_nb]
 
     if not kanji_due:
         print("Nothing left to study!")
     for k in kanji_due:
+        print("")
         question_type = random.choice(["meaning", "caractere", "reading"])
 
         if question_type == "meaning":
+            title = "[bold blue]==========意味==========\n"
             good_answer = k[2]
-            question = f"Whats the meaning of {k[1]} ?"
+            question = f"\nWhats the meaning of {k[1]} ?"
             index_wrong = 2
 
         elif question_type == "caractere":
+            title = "[bold blue]==========書き方==========\n"
             good_answer = k[1]
-            question = f"Whats the caractere for {k[2]}"
+            question = f"\nWhats the caractere for {k[2]}"
             index_wrong = 1
 
         else:
+            title = "[bold blue]==========読み方==========\n"
             good_answer = k[3]
-            question = f"Whats the reading of {k[1]}"
+            question = f"\nWhats the reading of {k[1]}"
             index_wrong = 3
 
+        console = Console()
+        console.clear
+        system("clear")
         wrong_answer = get_random_choice(database_name, k[1])
         choices = []
         choices.append(good_answer)
         for wk in wrong_answer:
             choices.append(wk[index_wrong])
         random.shuffle(choices)
+        print(title)
         for number, choice in enumerate(choices, 1):
             print(f"{number}: {choice}")
 
@@ -75,6 +83,9 @@ def main() -> None:
 
             if player_answer == good_answer:
                 print("[bold green]SUCCES")
+                with open("answer_sheets.txt", 'a', encoding="utf=8") as f:
+                    f.write(f"[{datetime.now()}] Kanji: {k[1]} | "
+                            "Result: Succes")
                 new_level = k[4] + 1
                 delay: timedelta = SRS_INTERVALS.get(new_level,
                                                      timedelta(days=30))
@@ -83,11 +94,43 @@ def main() -> None:
 
             else:
                 print(f"[bold red]ERROR: The answer is {good_answer}!")
+                with open("answer_sheets.txt", 'a', encoding="utf=8") as f:
+                    f.write(f"[{datetime.now()}] Kanji: {k[1]} | "
+                            "Result: Failed")
                 new_level = 0
                 new_date = datetime.now() + timedelta(minutes=5)
                 update_kanji_srs(database_name, new_level, new_date, k[1])
         except (ValueError, IndexError):
             print("[bold red]Error: wrong input, counted as a mistake!")
+
+
+def main() -> None:
+
+    init_database(database_name)
+    seed_database(database_name, "n2_kanji.csv")
+
+    while True:
+        print("\n======================================")
+        print("[bold green]              Main Menu                ")
+        print("======================================")
+        print("1. [bold blue]Launch training session!")
+        print("2. [bold blue]See your statistics! (WIP)")
+        print("3. [bold blue]Exit")
+
+        choice = input("What do you want to do? (1/2/3): ")
+
+        if choice == "1":
+            launch_session(database_name)
+
+        elif choice == "2":
+            print("[bold yellow]This is still a work in progress...")
+
+        elif choice == "3" or choice.lower() in ['q', 'quit']:
+            print("[bold yellow]Exiting...")
+            break
+
+        else:
+            print("[bold red]Error: invalid choice, try again!")
 
 
 if __name__ == "__main__":
