@@ -28,6 +28,7 @@ clean:
 fclean: clean
 	@rm -f kanji_n2.db
 	@rm -f poetry.lock
+	@rm -f answer_sheets.txt
 
 re: fclean all
 
