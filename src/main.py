@@ -1,12 +1,11 @@
 import sqlite3
 import random
-from os import system
+import os
 from typing import Any
 from database import (init_database, kanji_due_data, update_kanji_srs,
                       seed_database, get_random_choice)
 from datetime import datetime, timedelta
 from rich import print  # type: ignore[import-untyped]
-from rich.console import Console  # type: ignore[import-untyped]
 
 database_name = 'n2train_kanji'
 sqlite3.register_adapter(datetime, lambda d: d.strftime("%Y-%m-%d %H:%M:%S"))
@@ -53,9 +52,7 @@ def launch_session(database_name) -> None:
             question = f"\nWhats the reading of {k[1]}"
             index_wrong = 3
 
-        console = Console()
-        console.clear
-        system("clear")
+        os.system("clear")
         wrong_answer = get_random_choice(database_name, k[1])
         choices = []
         choices.append(good_answer)
@@ -83,9 +80,9 @@ def launch_session(database_name) -> None:
 
             if player_answer == good_answer:
                 print("[bold green]SUCCES")
-                with open("answer_sheets.txt", 'a', encoding="utf=8") as f:
+                with open("answer_sheets.txt", "a", encoding="utf=8") as f:
                     f.write(f"[{datetime.now()}] Kanji: {k[1]} | "
-                            "Result: Succes")
+                            "Result: Succes\n")
                 new_level = k[4] + 1
                 delay: timedelta = SRS_INTERVALS.get(new_level,
                                                      timedelta(days=30))
@@ -94,14 +91,15 @@ def launch_session(database_name) -> None:
 
             else:
                 print(f"[bold red]ERROR: The answer is {good_answer}!")
-                with open("answer_sheets.txt", 'a', encoding="utf=8") as f:
+                with open("answer_sheets.txt", "a", encoding="utf=8") as f:
                     f.write(f"[{datetime.now()}] Kanji: {k[1]} | "
-                            "Result: Failed")
+                            "Result: Failed\n")
                 new_level = 0
                 new_date = datetime.now() + timedelta(minutes=5)
                 update_kanji_srs(database_name, new_level, new_date, k[1])
         except (ValueError, IndexError):
             print("[bold red]Error: wrong input, counted as a mistake!")
+        input("\nPress enter to continue...")
 
 
 def main() -> None:
@@ -110,6 +108,7 @@ def main() -> None:
     seed_database(database_name, "n2_kanji.csv")
 
     while True:
+        os.system("clear")
         print("\n======================================")
         print("[bold green]              Main Menu                ")
         print("======================================")
@@ -135,3 +134,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+  
