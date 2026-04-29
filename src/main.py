@@ -27,6 +27,7 @@ def launch_session(database_name) -> None:
     print()
 
     kanji_due: list[Any] = kanji_due_data(database_name)[:questions_nb]
+    random.shuffle(kanji_due)
 
     if not kanji_due:
         print("Nothing left to study!")
