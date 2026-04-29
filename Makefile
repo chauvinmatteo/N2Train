@@ -30,6 +30,9 @@ fclean: clean
 	@rm -f poetry.lock
 	@rm -f answer_sheets.txt
 
+reset: fclean
+	@rm -f n2train_kanji
+
 re: fclean all
 
 .PHONY: all install run test clean fclean re
