@@ -22,7 +22,7 @@ almost immediately, so you spend your time on the kanji you actually struggle wi
 ## Requirements
 
 - Python **3.13+**
-- [Poetry](https://python-poetry.org/) 2.x
+- [uv](https://docs.astral.sh/uv/) (it installs Python 3.13+ for you if needed)
 - A Unix-like terminal (the app uses the `clear` command)
 
 ## Installation & usage
@@ -36,8 +36,8 @@ make            # install dependencies, then launch the app
 Or step by step:
 
 ```bash
-make install    # poetry install
-make run        # poetry run python src/main.py
+make install    # uv sync
+make run        # uv run python src/main.py
 ```
 
 > Run the commands from the project root: the database, the CSV and the answer
@@ -82,7 +82,7 @@ On first launch, every kanji is inserted at stage 0 and is immediately due.
 ```
 N2Train/
 ├── Makefile          # install / run / clean rules
-├── pyproject.toml    # Poetry project (dependency: rich)
+├── pyproject.toml    # uv project (dependency: rich)
 ├── n2_kanji.csv      # kanji deck: caractere, sens (meaning), lecture (reading)
 └── src/
     ├── main.py       # menu, training session, SRS logic
@@ -114,11 +114,11 @@ progress is kept and new rows added to the CSV are picked up automatically.
 | Rule           | Effect                                                         |
 |----------------|----------------------------------------------------------------|
 | `make` / `all` | `install` then `run`                                           |
-| `make install` | Install dependencies with Poetry                               |
+| `make install` | Install dependencies with uv                                   |
 | `make run`     | Launch the app                                                 |
 | `make test`    | Run `pytest`                                                   |
 | `make clean`   | Remove `__pycache__`, `.pytest_cache` and `.venv`              |
-| `make fclean`  | `clean` + remove `poetry.lock` and `answer_sheets.txt`         |
+| `make fclean`  | `clean` + remove `uv.lock` and `answer_sheets.txt`             |
 | `make reset`   | `fclean` + delete the database (**all progress is lost**)      |
 | `make re`      | `fclean` then `all`                                            |
 

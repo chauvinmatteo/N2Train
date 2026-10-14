@@ -1,5 +1,5 @@
 NAME        = n2train-kanji
-PYTHON      = poetry run python
+PYTHON      = uv run python
 SRC_DIR     = src
 MAIN        = $(SRC_DIR)/main.py
 
@@ -10,14 +10,14 @@ all: install run
 
 install:
 	@echo "$(GREEN)Downloading dependencies...$(RESET)"
-	@poetry install
+	@uv sync
 
 run:
 	@echo "$(GREEN)Loading $(NAME)...$(RESET)"
 	@$(PYTHON) $(MAIN)
 
 test:
-	@poetry run pytest
+	@uv run pytest
 
 clean:
 	@echo "$(GREEN)Cleaning...$(RESET)"
@@ -26,8 +26,7 @@ clean:
 	@rm -rf .venv
 
 fclean: clean
-	@rm -f kanji_n2.db
-	@rm -f poetry.lock
+	@rm -f uv.lock
 	@rm -f answer_sheets.txt
 
 reset: fclean
@@ -35,4 +34,4 @@ reset: fclean
 
 re: fclean all
 
-.PHONY: all install run test clean fclean re
+.PHONY: all install run test clean fclean reset re
