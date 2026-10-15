@@ -27,10 +27,9 @@ clean:
 
 fclean: clean
 	@rm -f uv.lock
-	@rm -f answer_sheets.txt
 
 reset: fclean
-	@rm -f n2train_kanji
+	@rm -f n2train.db
 
 re: fclean all
 
