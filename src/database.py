@@ -1,108 +1,166 @@
-import sqlite3
 import csv
+import sqlite3
 from datetime import datetime
+from pathlib import Path
+
+from fsrs import Card, Rating
+
+from dates import to_iso
+
+SCHEMA = '''
+CREATE TABLE IF NOT EXISTS kanjis (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    caractere TEXT NOT NULL UNIQUE,
+    meaning TEXT NOT NULL,
+    reading TEXT NOT NULL,
+    card TEXT,              -- FSRS card as JSON, NULL while never studied
+    due TEXT,               -- copy of the card due date, for the queries
+    introduced_at TEXT      -- date of the first review
+);
+CREATE INDEX IF NOT EXISTS idx_kanjis_due ON kanjis(due);
+
+CREATE TABLE IF NOT EXISTS reviews (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    kanji_id INTEGER NOT NULL REFERENCES kanjis(id),
+    reviewed_at TEXT NOT NULL,
+    question_type TEXT NOT NULL,
+    correct INTEGER NOT NULL,
+    rating INTEGER NOT NULL,
+    duration_ms INTEGER
+);
+CREATE INDEX IF NOT EXISTS idx_reviews_date ON reviews(reviewed_at);
+'''
+
+ANSWER_COLUMNS = ("caractere", "meaning", "reading")
 
 
-def init_database(database_name):
+class Database:
 
-    conn: sqlite3.Connection = sqlite3.connect(database_name)
-    c = conn.cursor()
-    request = ('''
-    CREATE TABLE IF NOT EXISTS kanjis (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        caractere TEXT NOT NULL UNIQUE,
-        meaning TEXT NOT NULL,
-        reading TEXT,
-        srs_stage INTEGER,
-        next_review TEXT
-    )
-''')
+    def __init__(self, path: Path | str) -> None:
 
-    c.execute(request)
-    conn.commit()
-    conn.close()
+        self.conn = sqlite3.connect(path)
+        self.conn.row_factory = sqlite3.Row
+        self.conn.execute("PRAGMA foreign_keys = ON")
+        self.conn.executescript(SCHEMA)
 
+    def close(self) -> None:
 
-def add_kanji(database, kanji_data) -> bool:
+        self.conn.close()
 
-    added = False
-    conn: sqlite3.Connection = sqlite3.connect(database)
-    c = conn.cursor()
-    request = ('''
-    INSERT OR IGNORE INTO kanjis(caractere, meaning, reading, srs_stage,
-               next_review) VALUES (?, ?, ?, ?, ?)
-               ''')
+    def seed(self, csv_path: Path | str) -> int:
 
-    c.execute(request, kanji_data)
-    conn.commit()
-    added = True
-    conn.close()
-    return added
+        with open(csv_path, encoding="utf-8", newline="") as file:
+            reader = csv.reader(file)
+            next(reader)
+            rows = [(row[0], row[1], row[2]) for row in reader
+                    if len(row) >= 3]
 
+        with self.conn:
+            before = self.conn.total_changes
+            self.conn.executemany('''
+                INSERT OR IGNORE INTO kanjis(caractere, meaning, reading)
+                VALUES (?, ?, ?)
+                ''', rows)
+            return self.conn.total_changes - before
 
-def get_all_kanji(database):
+    def due_kanji(self, now: datetime, limit: int) -> list[dict]:
 
-    conn = sqlite3.connect(database)
-    c = conn.cursor()
-    request = ("SELECT * FROM kanjis")
-    c.execute(request)
-    k_data = c.fetchall()
-    conn.close()
-    return k_data
+        rows = self.conn.execute('''
+            SELECT * FROM kanjis
+            WHERE card IS NOT NULL AND due <= ?
+            ORDER BY due LIMIT ?
+            ''', (to_iso(now), limit))
+        return [dict(row) for row in rows]
 
+    def new_kanji(self, limit: int) -> list[dict]:
 
-def kanji_due_data(database):
+        rows = self.conn.execute('''
+            SELECT * FROM kanjis WHERE card IS NULL ORDER BY id LIMIT ?
+            ''', (limit,))
+        return [dict(row) for row in rows]
 
-    conn = sqlite3.connect(database)
-    c = conn.cursor()
-    request = ("SELECT * FROM kanjis WHERE next_review <= ?")
-    c.execute(request, (datetime.now(),))
-    k_data = c.fetchall()
-    conn.close()
-    return k_data
+    def all_kanji(self) -> list[dict]:
 
+        return [dict(row) for row in self.conn.execute(
+            "SELECT * FROM kanjis ORDER BY id")]
 
-def update_kanji_srs(database, new_stage, new_date, caractere):
+    def count_due(self, now: datetime) -> int:
 
-    conn = sqlite3.connect(database)
-    c = conn.cursor()
-    request = ('''
-    UPDATE kanjis
-    SET srs_stage = ?, next_review = ?
-    WHERE caractere = ?
-    ''')
-    c.execute(request, (new_stage, new_date, caractere))
-    conn.commit()
-    conn.close()
+        return self.conn.execute('''
+            SELECT COUNT(*) FROM kanjis WHERE card IS NOT NULL AND due <= ?
+            ''', (to_iso(now),)).fetchone()[0]
 
+    def count_new(self) -> int:
 
-def seed_database(database, csv_filepath):
+        return self.conn.execute(
+            "SELECT COUNT(*) FROM kanjis WHERE card IS NULL").fetchone()[0]
 
-    with open(csv_filepath, mode="r", encoding="utf-8") as file:
-        reader = csv.reader(file)
-        next(reader)
-        for row in reader:
-            caractere: str = row[0]
-            meaning: str = row[1]
-            reading: str = row[2]
-            level = 0
-            learn_date = datetime.now()
-            kanji_data: tuple = (caractere, meaning, reading,
-                                 level, learn_date)
-            add_kanji(database, kanji_data)
-    print("Finished adding all kanji")
+    def count_introduced_since(self, since: datetime) -> int:
 
+        return self.conn.execute('''
+            SELECT COUNT(*) FROM kanjis WHERE introduced_at >= ?
+            ''', (to_iso(since),)).fetchone()[0]
 
-def get_random_choice(database, current_kanji):
+    def next_due(self) -> str | None:
 
-    conn = sqlite3.connect(database)
-    c = conn.cursor()
-    request = ('''
-    SELECT * FROM kanjis WHERE caractere != ?
-    ORDER BY RANDOM() LIMIT 3
-                   ''')
-    c.execute(request, (current_kanji,))
+        return self.conn.execute(
+            "SELECT MIN(due) FROM kanjis WHERE card IS NOT NULL"
+        ).fetchone()[0]
 
-    distractor = c.fetchall()
-    c.close()
-    return distractor
+    def distractors(self, column: str, good_answer: str,
+                    count: int = 3) -> list[str]:
+
+        # The column name can't be a SQL parameter, so it is whitelisted
+        if column not in ANSWER_COLUMNS:
+            raise ValueError(f"Invalid column: {column}")
+        rows = self.conn.execute(f'''
+            SELECT DISTINCT {column} FROM kanjis WHERE {column} != ?
+            ORDER BY RANDOM() LIMIT ?
+            ''', (good_answer, count))
+        return [row[0] for row in rows]
+
+    def save_review(self, kanji_id: int, card: Card, question_type: str,
+                    correct: bool, rating: Rating, reviewed_at: datetime,
+                    duration_ms: int | None = None) -> None:
+
+        with self.conn:
+            self.conn.execute('''
+                UPDATE kanjis
+                SET card = ?, due = ?,
+                    introduced_at = COALESCE(introduced_at, ?)
+                WHERE id = ?
+                ''', (card.to_json(), to_iso(card.due), to_iso(reviewed_at),
+                      kanji_id))
+            self.conn.execute('''
+                INSERT INTO reviews(kanji_id, reviewed_at, question_type,
+                                    correct, rating, duration_ms)
+                VALUES (?, ?, ?, ?, ?, ?)
+                ''', (kanji_id, to_iso(reviewed_at), question_type,
+                      int(correct), int(rating), duration_ms))
+
+    def review_dates(self) -> list[str]:
+
+        return [row[0] for row in self.conn.execute(
+            "SELECT reviewed_at FROM reviews")]
+
+    def accuracy_since(self, since: datetime | None = None) -> tuple[int,
+                                                                     int]:
+
+        row = self.conn.execute('''
+            SELECT COALESCE(SUM(correct), 0), COUNT(*) FROM reviews
+            WHERE reviewed_at >= ?
+            ''', (to_iso(since) if since else "",)).fetchone()
+        return row[0], row[1]
+
+    def most_missed(self, limit: int = 8) -> list[dict]:
+
+        rows = self.conn.execute('''
+            SELECT k.caractere, k.meaning, k.reading,
+                   COUNT(*) AS misses
+            FROM reviews r JOIN kanjis k ON k.id = r.kanji_id
+            WHERE r.correct = 0
+            GROUP BY k.id
+            ORDER BY misses DESC, MAX(r.reviewed_at) DESC
+            LIMIT ?
+            ''', (limit,))
+        return [dict(row) for row in rows]
